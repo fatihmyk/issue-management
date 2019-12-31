@@ -1,6 +1,5 @@
 package com.fatihmayuk.issuemanagement.service.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.entity.Project;
 import com.fatihmayuk.issuemanagement.repository.ProjectRepository;
@@ -25,39 +24,71 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project save(Project project) {
-        if (project.getProjectCode()==null){
+    public ProjectDto save(ProjectDto projectDto) {
 
-            throw new IllegalArgumentException("Project code cannot be null!");
+        /* Bu validationları ProjectDto'nun içinde anotasyon olarak yaptığımız için burada gerek kalmadı.
+       if (projectDto.getProjectCode()==null){
+            throw new IllegalArgumentException("Project code cannot be null!"); } */
 
-        }
-        return projectRepository.save(project);
+        Project projectCheck = projectRepository.getByProjectCode(projectDto.getProjectCode());
+
+        if (projectCheck != null) {
+            throw new IllegalArgumentException("Project Code Already Exist"); }
+
+        Project project = modelMapper.map(projectDto, Project.class);
+        project = projectRepository.save(project);
+        projectDto.setId(project.getId());
+        return projectDto;
     }
 
     @Override
     public ProjectDto getById(Long id) {
-       Project p = projectRepository.getOne(id);
-      return modelMapper.map(p,ProjectDto.class);
+        Project project = projectRepository.getOne(id);
+        return modelMapper.map(project, ProjectDto.class);
 
     }
 
     @Override
-    public Page<Project> getAllPageable(Pageable pageable) {
-        return projectRepository.findAll(pageable);
-    }
-
-    @Override
-    public Boolean delete(Project project) {
+    public Page<ProjectDto> getAllPageable(Pageable pageable) {
         return null;
     }
 
     @Override
-    public List<Project> getByProjectCode(String projectCode) {
+    public Boolean delete(ProjectDto projectDto) {
         return null;
     }
 
     @Override
-    public List<Project> getByProjectCodeContains(String projectCode) {
+    public Boolean delete(Long id){
+        projectRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public ProjectDto getByProjectCode(String projectCode) {
         return null;
+    }
+
+    @Override
+    public List<ProjectDto> getByProjectCodeContains(String projectCode) {
+        return null;
+    }
+
+    @Override
+    public ProjectDto update(Long id, ProjectDto projectDto) {
+        Project projectDb=projectRepository.getOne(id);
+        if (projectDb == null) {
+            throw new IllegalArgumentException("Project Does Not Exist. ID: "+id); }
+
+        Project projectCheck = projectRepository.getByProjectCodeAndIdNot(projectDto.getProjectCode(),id);
+        if (projectCheck != null) {
+            throw new IllegalArgumentException("Project Code Already Exist");
+        }
+        projectDb.setProjectCode(projectDto.getProjectCode());
+        projectDb.setProjectName(projectDto.getProjectName());
+
+        projectRepository.save(projectDb);
+        return modelMapper.map(projectDb,ProjectDto.class);
+
     }
 }
