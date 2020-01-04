@@ -2,6 +2,7 @@ package com.fatihmayuk.issuemanagement.api;
 
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.service.impl.ProjectServiceImpl;
+import com.fatihmayuk.issuemanagement.util.ApiPaths;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ import javax.validation.Valid;
  */
 
 @RestController
-@RequestMapping("/project")
+@RequestMapping(ApiPaths.ProjectCtrl.CTRL)
 public class ProjectController {
 
     private final ProjectServiceImpl projectServiceImpl;

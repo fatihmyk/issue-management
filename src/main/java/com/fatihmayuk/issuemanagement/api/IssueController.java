@@ -16,7 +16,7 @@ import javax.validation.Valid;
  */
 
 @RestController
-@RequestMapping("/issue")
+@RequestMapping(ApiPaths.IssueCtrl.CTRL)
 public class IssueController {
 
     private final IssueServiceImpl issueServiceImpl;
