@@ -4,6 +4,7 @@ import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.entity.Project;
 import com.fatihmayuk.issuemanagement.repository.ProjectRepository;
 import com.fatihmayuk.issuemanagement.service.ProjectService;
+import com.fatihmayuk.issuemanagement.util.TPage;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,7 +31,7 @@ public class ProjectServiceImpl implements ProjectService {
        if (projectDto.getProjectCode()==null){
             throw new IllegalArgumentException("Project code cannot be null!"); } */
 
-        Project projectCheck = projectRepository.getByProjectCode(projectDto.getProjectCode());
+        Project projectCheck = (Project)(projectRepository.getByProjectCode(projectDto.getProjectCode()));
 
         if (projectCheck != null) {
             throw new IllegalArgumentException("Project Code Already Exist"); }
@@ -49,7 +50,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Page<ProjectDto> getAllPageable(Pageable pageable) {
+    public TPage<ProjectDto> getAllPageable(Pageable pageable) {
         return null;
     }
 
@@ -80,7 +81,7 @@ public class ProjectServiceImpl implements ProjectService {
         if (projectDb == null) {
             throw new IllegalArgumentException("Project Does Not Exist. ID: "+id); }
 
-        Project projectCheck = projectRepository.getByProjectCodeAndIdNot(projectDto.getProjectCode(),id);
+        Project projectCheck = projectRepository.getByProjectCodeAndIdNot(projectDto.getProjectCode(), id);
         if (projectCheck != null) {
             throw new IllegalArgumentException("Project Code Already Exist");
         }

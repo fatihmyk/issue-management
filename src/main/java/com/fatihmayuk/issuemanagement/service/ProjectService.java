@@ -1,6 +1,7 @@
 package com.fatihmayuk.issuemanagement.service;
 
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
+import com.fatihmayuk.issuemanagement.util.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,7 +13,7 @@ public interface ProjectService {
 
     ProjectDto getById(Long id);
 
-    Page<ProjectDto> getAllPageable(Pageable pageable);
+    TPage<ProjectDto> getAllPageable(Pageable pageable);
 
     Boolean delete(ProjectDto projectDto);
 

@@ -8,9 +8,11 @@ import com.fatihmayuk.issuemanagement.util.TPage;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
+@Service
 public class IssueServiceImpl implements IssueService {
 
     private final IssueRepository issueRepository;
@@ -50,7 +52,13 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
-    public Boolean delete(IssueDto issueDto) {
+    public Boolean delete(Long id) {
+        issueRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public IssueDto update(Long id, IssueDto issueDto) {
         return null;
     }
 }
