@@ -38,13 +38,14 @@ public class IssueServiceImpl implements IssueService {
 
     @Override
     public IssueDto getById(Long id) {
-        return null;
+        Issue issue = issueRepository.getOne(id);
+        return modelMapper.map(issue,IssueDto.class);
     }
 
     @Override
     public TPage<IssueDto> getAllPageable(Pageable pageable) {
         Page<Issue> data= issueRepository.findAll(pageable);
-        TPage tPage = new TPage<IssueDto>();
+        TPage<IssueDto> tPage = new TPage<IssueDto>();
         IssueDto[] issueDtos = modelMapper.map(data.getContent(),IssueDto[].class);
         tPage.setStat(data, Arrays.asList(issueDtos));
         return tPage;
