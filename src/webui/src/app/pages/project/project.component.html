@@ -14,11 +14,15 @@
     [count]="page.totalElements"
     [offset]="page.page"
     [limit]="page.size"
-    (page)="setPage($event)"
-  >
+    (page)="setPage($event)">
   </ngx-datatable>
 
+  <ng-template #tplProjectDeleteCell let-row="row" let-value="value">
+    <button (click)="showProjectDeleteConfirmation(value)"><i class="material-icons">delete</i></button>
+  </ng-template>
+
   <div >
+<!--    <button type="button" class="btn btn-primary" (click)="showDeleteConfirmation()">Confirm</button>-->
     <button type="button" class="btn btn-primary" (click)="openModal(template)">{{'New' | translate}}</button>
   </div>
   <ng-template #template>
