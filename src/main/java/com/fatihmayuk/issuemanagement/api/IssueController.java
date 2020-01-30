@@ -2,10 +2,13 @@ package com.fatihmayuk.issuemanagement.api;
 
 import com.fatihmayuk.issuemanagement.dto.IssueDto;
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
+import com.fatihmayuk.issuemanagement.entity.Issue;
 import com.fatihmayuk.issuemanagement.service.impl.IssueServiceImpl;
 import com.fatihmayuk.issuemanagement.util.ApiPaths;
+import com.fatihmayuk.issuemanagement.util.TPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +24,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(ApiPaths.IssueCtrl.CTRL)
 @Api(value = ApiPaths.IssueCtrl.CTRL, description = "Issue APIs")
+@CrossOrigin
 public class IssueController {
 
     private final IssueServiceImpl issueServiceImpl;
@@ -29,6 +33,12 @@ public class IssueController {
         this.issueServiceImpl = issueServiceImpl;
     }
 
+    @GetMapping("/pagination")
+    @ApiOperation(value = "Get By Pagination Operation", response = IssueDto.class)
+    public ResponseEntity<TPage<IssueDto>> getAllByPagination(Pageable pageable){
+        TPage<IssueDto> data = issueServiceImpl.getAllPageable(pageable);
+        return ResponseEntity.ok(data);
+    }
 
     @GetMapping("/{id}")
     @ApiOperation(value = "Get By Id Operation",response = IssueDto.class)

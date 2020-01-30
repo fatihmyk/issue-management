@@ -7,13 +7,13 @@ import {map} from "rxjs/internal/operators";
 @Injectable()
 export class UserService{
 
-  private USER_PATH = "/user";
+  private USER_PATH = "/users";
 
   constructor(private apiService: ApiService) {
   }
 
-  getAll(page): Observable<any> {
-    return this.apiService.get(this.USER_PATH+'/pagination',page).pipe(map(
+  getAll(): Observable<any> {
+    return this.apiService.get(this.USER_PATH).pipe(map(
       res => {
         if (res) {
           return res;
@@ -51,7 +51,7 @@ export class UserService{
     ));
   }
 
-  delete(id): Observable<any> {
+ /* delete(id): Observable<any> {
     return this.apiService.delete(this.USER_PATH+'/'+id).pipe(map(
       res => {
         if (res) {
@@ -62,7 +62,7 @@ export class UserService{
         }
       }
     ));
-  }
+  }*/
 
 
 }

@@ -10,7 +10,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class IssueServiceImpl implements IssueService {
@@ -49,7 +52,11 @@ public class IssueServiceImpl implements IssueService {
         IssueDto[] issueDtos = modelMapper.map(data.getContent(),IssueDto[].class);
         tPage.setStat(data, Arrays.asList(issueDtos));
         return tPage;
+    }
 
+    public List<IssueDto> getAll() {
+        List<Issue> data= issueRepository.findAll();
+        return Arrays.asList( modelMapper.map(data, IssueDto[].class));
     }
 
     @Override

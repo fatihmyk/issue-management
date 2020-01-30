@@ -2,7 +2,6 @@ package com.fatihmayuk.issuemanagement.service;
 
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.util.TPage;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
