@@ -31,13 +31,17 @@ export class ProjectComponent implements OnInit {
     this.cols = [{prop:'id', name:'No'},
       { prop:'projectName', name: 'Project Name', sortable:false },
       { prop:'projectCode', name: 'Project Code' , sortable:false },
-      { prop:'id', name: 'Actions' , cellTemplate: this.tplProjectDeleteCell, flexGrow:1 ,sortable:false }];
+      { prop:'manager.nameSurname', name: 'Project Manager' , sortable:false },
+      { prop:'id', name: 'Actions' , cellTemplate: this.tplProjectDeleteCell, flexGrow:1 ,sortable:false }
+      ];
+
     this.setPage({ offset: 0 });
 
     //this.projectService.getAll().subscribe((resp) => {console.log(resp)}); deneme
        this.projectForm = this.formBuilder.group({
          'projectCode': [null, [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
-         'projectName': [null, [Validators.required, Validators.minLength(4),]]
+         'projectName': [null, [Validators.required, Validators.minLength(4)]],
+         'managerId': [null, [Validators.required]]
        });
 
     this.userService.getAll().subscribe(res => {
@@ -52,15 +56,17 @@ export class ProjectComponent implements OnInit {
   }
 
   saveProject() {
+   /* debugger*/
     if(!this.projectForm.valid)
       return;
 
     this.projectService.createProject(this.projectForm.value).subscribe(
       response => {
-        console.log(response);
+        this.setPage({ offset: 0 });
+        this.closeAndResetModal();
       }
     )
-    this.closeAndResetModal();
+
   }
 
   closeAndResetModal(){
