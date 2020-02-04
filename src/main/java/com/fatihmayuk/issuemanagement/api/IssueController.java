@@ -1,5 +1,6 @@
 package com.fatihmayuk.issuemanagement.api;
 
+import com.fatihmayuk.issuemanagement.dto.IssueDetailDto;
 import com.fatihmayuk.issuemanagement.dto.IssueDto;
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.entity.Issue;
@@ -45,6 +46,13 @@ public class IssueController {
     public ResponseEntity<IssueDto> getById(@PathVariable(value = "id",required = true) Long id) {
         IssueDto issueDto = issueServiceImpl.getById(id);
         return ResponseEntity.ok(issueDto);
+    }
+
+    @GetMapping("/detail/{id}")
+    @ApiOperation(value = "Get By Id Operation",response = IssueDto.class)
+    public ResponseEntity<IssueDetailDto> getByIdWithDetails(@PathVariable(value = "id",required = true) Long id) {
+        IssueDetailDto issueDetailDto = issueServiceImpl.getByIdWithDetails(id);
+        return ResponseEntity.ok(issueDetailDto);
     }
 
     @PostMapping
