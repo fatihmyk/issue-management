@@ -4,6 +4,7 @@ import com.fatihmayuk.issuemanagement.dto.IssueDetailDto;
 import com.fatihmayuk.issuemanagement.dto.IssueDto;
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.entity.Issue;
+import com.fatihmayuk.issuemanagement.entity.IssueStatus;
 import com.fatihmayuk.issuemanagement.service.impl.IssueServiceImpl;
 import com.fatihmayuk.issuemanagement.util.ApiPaths;
 import com.fatihmayuk.issuemanagement.util.TPage;
@@ -14,6 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -78,6 +81,11 @@ public class IssueController {
         return ResponseEntity.ok(issueServiceImpl.delete(id));
     }
 
+    @GetMapping("/statuses")
+    @ApiOperation(value = "Get All Issue Status Operation", response = IssueStatus.class, responseContainer = "List")
+    public ResponseEntity<List<IssueStatus>> getAll() {
 
+        return ResponseEntity.ok(Arrays.asList(IssueStatus.values()));
+    }
 
 }

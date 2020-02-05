@@ -1,5 +1,6 @@
 package com.fatihmayuk.issuemanagement.service;
 
+import com.fatihmayuk.issuemanagement.dto.IssueDetailDto;
 import com.fatihmayuk.issuemanagement.dto.IssueDto;
 import com.fatihmayuk.issuemanagement.entity.Issue;
 import com.fatihmayuk.issuemanagement.util.TPage;
@@ -17,4 +18,6 @@ public interface IssueService {
     Boolean delete(Long id);
 
     IssueDto update(Long id, IssueDto issueDto);
+
+    IssueDetailDto getByIdWithDetails(Long id);
 }

@@ -1,7 +1,9 @@
 package com.fatihmayuk.issuemanagement.service.impl;
 
+import com.fatihmayuk.issuemanagement.dto.IssueDto;
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.dto.UserDto;
+import com.fatihmayuk.issuemanagement.entity.Issue;
 import com.fatihmayuk.issuemanagement.entity.Project;
 import com.fatihmayuk.issuemanagement.entity.User;
 import com.fatihmayuk.issuemanagement.repository.ProjectRepository;
@@ -56,11 +58,17 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public List<ProjectDto> getAll() {
+        List<Project> data= projectRepository.findAll();
+        return Arrays.asList( modelMapper.map(data, ProjectDto[].class));
+    }
+
+    @Override
     public TPage<ProjectDto> getAllPageable(Pageable pageable) {
         Page<Project> data = projectRepository.findAll(pageable);
-        TPage<ProjectDto> respnose = new TPage<ProjectDto>();
-        respnose.setStat(data, Arrays.asList(modelMapper.map(data.getContent(), ProjectDto[].class)));
-        return respnose;
+        TPage<ProjectDto> response = new TPage<ProjectDto>();
+        response.setStat(data, Arrays.asList(modelMapper.map(data.getContent(), ProjectDto[].class)));
+        return response;
 
     }
 

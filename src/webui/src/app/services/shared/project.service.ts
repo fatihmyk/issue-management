@@ -18,7 +18,18 @@ export class ProjectService{
         if (res) {
           return res;
         } else {
-          console.log(res);
+          return {};
+        }
+      }
+    ));
+  }
+
+  getAllNP(): Observable<any> {
+    return this.apiService.get(this.PROJECT_PATH).pipe(map(
+      res => {
+        if (res) {
+          return res;
+        } else {
           return {};
         }
       }
@@ -63,6 +74,5 @@ export class ProjectService{
       }
     ));
   }
-
 
 }
