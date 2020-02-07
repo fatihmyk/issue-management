@@ -14,5 +14,32 @@
     "_class": "com.fatihmayuk.issuemanagement.entity.Project",
     "projectCode" : "CRM-S",
     "projectName": "CRM Project for Sales"
+  },
+  {
+    "_class": "com.fatihmayuk.issuemanagement.entity.Project",
+    "projectCode" : "CRM-B",
+    "projectName": "CRM Project for Bussiness"
+  },
+  {
+    "_class": "com.fatihmayuk.issuemanagement.entity.Project",
+    "projectCode" : "ERP-B",
+    "projectName": "CRM Project for Bussiness"
+  },
+  {
+    "_class": "com.fatihmayuk.issuemanagement.entity.Project",
+    "projectCode" : "TP",
+    "projectName": "Test Project"
+  },
+  {
+    "_class": "com.fatihmayuk.issuemanagement.entity.User",
+    "username" : "fatihmyk",
+    "nameSurname": "Fatih Mayuk",
+    "email" : "fatihmayuk.dev@gmail.com"
+  },
+  {
+    "_class": "com.fatihmayuk.issuemanagement.entity.User",
+    "username" : "mehmetmyk",
+    "nameSurname": "Mehmet Mayuk",
+    "email" : "mehmetmayuk.dev@gmail.com"
   }
   ]

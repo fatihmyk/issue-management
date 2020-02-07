@@ -1,18 +1,25 @@
 package com.fatihmayuk.issuemanagement.service;
 
+import com.fatihmayuk.issuemanagement.dto.IssueHistoryDto;
+import com.fatihmayuk.issuemanagement.dto.IssueUpdateDto;
+import com.fatihmayuk.issuemanagement.entity.Issue;
 import com.fatihmayuk.issuemanagement.entity.IssueHistory;
-import org.springframework.data.domain.Page;
+import com.fatihmayuk.issuemanagement.util.TPage;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface IssueHistoryService {
 
-    IssueHistory save(IssueHistory issueHistory);
+    IssueHistoryDto save(IssueHistoryDto issueHistoryDto);
 
-    IssueHistory getById(Long id);
+    IssueHistoryDto getById(Long id);
 
-    Page<IssueHistory> getAllPageable(Pageable pageable);
+    List<IssueHistoryDto> getByIssueIdOrderById(Long id);
 
-    Boolean delete(IssueHistory issueHistory);
+    TPage<IssueHistoryDto> getAllPageable(Pageable pageable);
 
+    Boolean delete(IssueHistoryDto issueHistoryDto);
 
+   void addHistory(Long id, Issue issueDb);
 }

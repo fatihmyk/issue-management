@@ -1,7 +1,11 @@
 package com.fatihmayuk.issuemanagement.service.impl;
 
+import com.fatihmayuk.issuemanagement.dto.IssueDto;
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
+import com.fatihmayuk.issuemanagement.dto.UserDto;
+import com.fatihmayuk.issuemanagement.entity.Issue;
 import com.fatihmayuk.issuemanagement.entity.Project;
+import com.fatihmayuk.issuemanagement.entity.User;
 import com.fatihmayuk.issuemanagement.repository.ProjectRepository;
 import com.fatihmayuk.issuemanagement.service.ProjectService;
 import com.fatihmayuk.issuemanagement.util.TPage;
@@ -18,11 +22,12 @@ public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository;
     private final ModelMapper modelMapper;
+    private final UserServiceImpl userServiceImpl;
 
-    public ProjectServiceImpl(ProjectRepository projectRepository, ModelMapper modelMapper) {
+    public ProjectServiceImpl(ProjectRepository projectRepository, ModelMapper modelMapper, UserServiceImpl userServiceImpl) {
         this.projectRepository = projectRepository;
         this.modelMapper = modelMapper;
-
+        this.userServiceImpl = userServiceImpl;
     }
 
     @Override
@@ -38,6 +43,9 @@ public class ProjectServiceImpl implements ProjectService {
             throw new IllegalArgumentException("Project Code Already Exist"); }
 
         Project project = modelMapper.map(projectDto, Project.class);
+        UserDto userDto = userServiceImpl.getById(projectDto.getManagerId());
+        User user = modelMapper.map(userDto, User.class);
+        project.setManager(user);
         project = projectRepository.save(project);
         projectDto.setId(project.getId());
         return projectDto;
@@ -50,11 +58,17 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public List<ProjectDto> getAll() {
+        List<Project> data= projectRepository.findAll();
+        return Arrays.asList( modelMapper.map(data, ProjectDto[].class));
+    }
+
+    @Override
     public TPage<ProjectDto> getAllPageable(Pageable pageable) {
         Page<Project> data = projectRepository.findAll(pageable);
-        TPage<ProjectDto> respnose = new TPage<ProjectDto>();
-        respnose.setStat(data, Arrays.asList(modelMapper.map(data.getContent(), ProjectDto[].class)));
-        return respnose;
+        TPage<ProjectDto> response = new TPage<ProjectDto>();
+        response.setStat(data, Arrays.asList(modelMapper.map(data.getContent(), ProjectDto[].class)));
+        return response;
 
     }
 

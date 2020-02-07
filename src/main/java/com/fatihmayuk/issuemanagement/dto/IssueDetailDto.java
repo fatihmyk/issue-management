@@ -8,17 +8,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel(value = "Issue Data Transfer Object")
-public class IssueDto {
+@ApiModel(value = "IssueDetail Data Transfer Object")
+public class IssueDetailDto {
 
     @ApiModelProperty(required = true,value = "ID")
     private Long id;
     @ApiModelProperty(required = true,value = "Description")
-    private  String description;
+    private String description;
     @ApiModelProperty(required = true,value = "Issue Details")
     private String details;
     @ApiModelProperty(required = true,value = "Date")
@@ -30,6 +31,6 @@ public class IssueDto {
     @ApiModelProperty(required = true,value = "Project")
     private ProjectDto project;
 
-
-
+    @ApiModelProperty(required = true,value = "Issue Histories")
+    private List<IssueHistoryDto> issueHistories;
 }
