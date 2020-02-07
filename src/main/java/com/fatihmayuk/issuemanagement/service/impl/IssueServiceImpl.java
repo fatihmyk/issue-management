@@ -4,6 +4,8 @@ import com.fatihmayuk.issuemanagement.dto.IssueDto;
 import com.fatihmayuk.issuemanagement.dto.IssueHistoryDto;
 import com.fatihmayuk.issuemanagement.dto.IssueUpdateDto;
 import com.fatihmayuk.issuemanagement.entity.Issue;
+import com.fatihmayuk.issuemanagement.entity.IssueStatus;
+import com.fatihmayuk.issuemanagement.entity.Project;
 import com.fatihmayuk.issuemanagement.entity.User;
 import com.fatihmayuk.issuemanagement.repository.IssueRepository;
 import com.fatihmayuk.issuemanagement.repository.ProjectRepository;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -41,13 +44,19 @@ public class IssueServiceImpl implements IssueService {
     @Override
     public IssueDto save(IssueDto issueDto) {
 
-        if (issueDto.getDate() == null) {
-        throw new IllegalArgumentException("Issue Date cannot be null!");
-        }
+        issueDto.setDate(new Date());
+        issueDto.setIssueStatus(IssueStatus.OPEN);
 
+        /*if (issueDto.getDate() == null) {
+        throw new IllegalArgumentException("Issue Date cannot be null!");
+        }*/
         Issue issueDb = modelMapper.map(issueDto,Issue.class);
+        issueDb.setProject(projectRepository.getOne(issueDto.getProject().getId()));
         issueDb = issueRepository.save(issueDb);
-        return modelMapper.map(issueDb,IssueDto.class);
+        issueDto.setId(issueDb.getId());
+        return issueDto;
+
+      //  return modelMapper.map(issueDb,IssueDto.class);
     }
 
     @Transactional
