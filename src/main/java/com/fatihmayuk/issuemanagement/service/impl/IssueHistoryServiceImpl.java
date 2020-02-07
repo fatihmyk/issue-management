@@ -2,6 +2,8 @@ package com.fatihmayuk.issuemanagement.service.impl;
 
 
 import com.fatihmayuk.issuemanagement.dto.IssueHistoryDto;
+import com.fatihmayuk.issuemanagement.dto.IssueUpdateDto;
+import com.fatihmayuk.issuemanagement.entity.Issue;
 import com.fatihmayuk.issuemanagement.entity.IssueHistory;
 import com.fatihmayuk.issuemanagement.repository.IssueHistoryRepository;
 import com.fatihmayuk.issuemanagement.service.IssueHistoryService;
@@ -41,8 +43,8 @@ public class IssueHistoryServiceImpl implements IssueHistoryService {
     }
 
     @Override
-    public List<IssueHistoryDto> getByIssueId(Long id) {
-        return Arrays.asList(modelMapper.map(issueHistoryRepository.getByIssueId(id),IssueHistoryDto[].class));
+    public List<IssueHistoryDto> getByIssueIdOrderById(Long id) {
+        return Arrays.asList(modelMapper.map(issueHistoryRepository.getByIssueIdOrderById(id),IssueHistoryDto[].class));
     }
 
     @Override
@@ -57,5 +59,18 @@ public class IssueHistoryServiceImpl implements IssueHistoryService {
     public Boolean delete(IssueHistoryDto issueHistoryDto) {
         issueHistoryRepository.deleteById(issueHistoryDto.getId());
         return Boolean.TRUE;
+    }
+
+    @Override
+    public void addHistory(Long id,  Issue issueDb) {
+        IssueHistory issueHistory = new IssueHistory();
+        issueHistory.setIssue(issueDb);
+        issueHistory.setAssignee(issueDb.getAssignee());
+        issueHistory.setDate(issueDb.getDate());
+        issueHistory.setDescription(issueDb.getDescription());
+        issueHistory.setDetails(issueDb.getDetails());
+        issueHistory.setIssueStatus(issueDb.getIssueStatus());
+        issueHistoryRepository.save(issueHistory);
+
     }
 }

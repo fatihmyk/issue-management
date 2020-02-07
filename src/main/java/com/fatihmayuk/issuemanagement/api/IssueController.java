@@ -2,6 +2,7 @@ package com.fatihmayuk.issuemanagement.api;
 
 import com.fatihmayuk.issuemanagement.dto.IssueDetailDto;
 import com.fatihmayuk.issuemanagement.dto.IssueDto;
+import com.fatihmayuk.issuemanagement.dto.IssueUpdateDto;
 import com.fatihmayuk.issuemanagement.dto.ProjectDto;
 import com.fatihmayuk.issuemanagement.entity.Issue;
 import com.fatihmayuk.issuemanagement.entity.IssueStatus;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.Clock;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,10 +70,11 @@ public class IssueController {
     //@RequestMapping(path = "/{id}",method = RequestMethod.PUT)
     @PutMapping("/{id}")
     @ApiOperation(value = "Update Operation",response = IssueDto.class)
-    public ResponseEntity<IssueDto> updateProject(@PathVariable(value = "id",required = true) Long id,@Valid @RequestBody IssueDto issueDto){
+    public ResponseEntity<IssueDetailDto> updateProject(@PathVariable(value = "id",required = true) Long id,@Valid @RequestBody IssueUpdateDto issueUpdateDto){
 
-       return ResponseEntity.ok(issueServiceImpl.update(id,issueDto));
-    }
+        return ResponseEntity.ok(issueServiceImpl.update(id, issueUpdateDto));
+       //return ResponseEntity.ok(issueServiceImpl.update(id,issueDto));
+}
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "Delete Operation",response = Boolean.class)

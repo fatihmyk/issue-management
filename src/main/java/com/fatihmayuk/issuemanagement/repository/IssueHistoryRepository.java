@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface IssueHistoryRepository extends JpaRepository<IssueHistory,Long> {
 
-    List<IssueHistory> getByIssueId(Long id);
+    List<IssueHistory> getByIssueIdOrderById(Long id);
 }

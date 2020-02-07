@@ -66,6 +66,19 @@ export class IssueService{
     ));
   }
 
+  updateIssue(issue) : Observable<any> {
+    return this.apiService.put(this.ISSUE_PATH +'/'+issue.id,issue).pipe(map(
+      res => {
+        if (res) {
+          return res;
+        } else {
+          console.log(res);
+          return {};
+        }
+      }
+    ));
+  }
+
   delete(id): Observable<any> {
     return this.apiService.delete(this.ISSUE_PATH,id).pipe(map(
       res => {
