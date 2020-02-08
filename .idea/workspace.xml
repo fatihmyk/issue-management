@@ -2,15 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0921d329-cdb7-4c3c-81ef-865b405d0fd9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_1_2_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_1_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_1_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_1_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/security/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/security/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/dto/IssueDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/dto/IssueDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/service/impl/IssueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/service/impl/IssueServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webui/src/app/pages/issue/issue-detail/issue-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/webui/src/app/pages/issue/issue-detail/issue-detail.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webui/src/app/pages/issue/issue.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/webui/src/app/pages/issue/issue.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/webui/src/app/pages/issue/issue.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/webui/src/app/pages/issue/issue.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/repository/IssueHistoryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/repository/IssueHistoryRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/IssueHistoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/IssueHistoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/impl/IssueServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/impl/IssueServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/issue-management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/issue-management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fatihmayuk/issuemanagement/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/IssueManagementApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/advice/ExceptionResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/advice/IMExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/api/IssueController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/api/ProjectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/api/ProjectVersionedApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/config/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/dto/IssueDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/dto/IssueHistoryDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/dto/ProjectDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/dto/UserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/entity/BaseEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/entity/Issue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/entity/IssueHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/entity/IssueStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/entity/Project.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/repository/IssueHistoryRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/repository/IssueRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/repository/ProjectRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/IssueHistoryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/IssueService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/ProjectService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/impl/IssueHistoryServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/impl/IssueServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/impl/ProjectServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/util/ApiPaths$IssueCtrl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/util/ApiPaths$ProjectCtrl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/util/ApiPaths.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fatihmayuk/issuemanagement/util/TPage.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +129,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="angular-ui" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -176,6 +214,20 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.IssueManagementApplication">
+    <configuration name="com.fatihmayuk.issuemanagement.service.impl in issue-management" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="issue-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fatihmayuk.issuemanagement.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.fatihmayuk.issuemanagement.service.impl" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="E2E Tests (issue-management)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/src/webui/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -205,6 +257,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.fatihmayuk.issuemanagement.service.impl in issue-management" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -266,7 +323,9 @@
       <workItem from="1580807508772" duration="18326000" />
       <workItem from="1580900566938" duration="9522000" />
       <workItem from="1580986581774" duration="7125000" />
-      <workItem from="1581084689886" duration="9772000" />
+      <workItem from="1581084689886" duration="10240000" />
+      <workItem from="1581160229650" duration="2893000" />
+      <workItem from="1581164379628" duration="3908000" />
     </task>
     <task id="LOCAL-00001" summary="First Initialize">
       <created>1577727125268</created>
@@ -415,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581087766600</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Add New Issue Page">
+      <created>1581094891894</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1581094891894</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +522,8 @@
     <MESSAGE value="404 not found component added&#10;issue list and issue detail routing&#10;Issue Detail Page Backend Implemented" />
     <MESSAGE value="Issue Detail Page Impl" />
     <MESSAGE value="Issue Detail Page- History- Date Format" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue Detail Page- History- Date Format" />
+    <MESSAGE value="Add New Issue Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add New Issue Page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2281" y="75" key="#Assign_Data_Sources" timestamp="1577625751340">
@@ -511,10 +578,10 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2319" y="148" key="#com.intellij.ide.util.ExportDialog/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1578141974852" />
-    <state x="2494" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1580993047480">
+    <state x="2494" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1581167644504">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
-    <state x="2494" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1580993047480" />
+    <state x="2494" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581167644504" />
     <state x="2369" y="144" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579867764784">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
@@ -539,11 +606,11 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2419" y="163" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1578141904271" />
-    <state x="2222" y="24" key="CommitChangelistDialog2" timestamp="1581087765456">
+    <state x="2222" y="24" key="CommitChangelistDialog2" timestamp="1581094891100">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="66" y="15" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1579185802340" />
-    <state x="2222" y="24" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581087765456" />
+    <state x="2222" y="24" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094891100" />
     <state x="604" y="131" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1580844643366" />
     <state width="580" height="466" key="DebuggerActiveHint" timestamp="1580990301660">
       <screen x="1920" y="0" width="1536" height="824" />
@@ -557,53 +624,53 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2469" y="171" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1580824486410" />
-    <state width="1493" height="152" key="GridCell.Tab.0.bottom" timestamp="1581094151678">
+    <state width="1493" height="152" key="GridCell.Tab.0.bottom" timestamp="1581095161923">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424119" />
-    <state width="1493" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151678" />
+    <state width="1493" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161923" />
     <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
-    <state width="1493" height="152" key="GridCell.Tab.0.center" timestamp="1581094151677">
+    <state width="1493" height="152" key="GridCell.Tab.0.center" timestamp="1581095161923">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424119" />
-    <state width="1493" height="152" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151677" />
+    <state width="1493" height="152" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161923" />
     <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
-    <state width="1493" height="152" key="GridCell.Tab.0.left" timestamp="1581094151677">
+    <state width="1493" height="152" key="GridCell.Tab.0.left" timestamp="1581095161923">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424118" />
-    <state width="1493" height="152" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151677" />
+    <state width="1493" height="152" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161923" />
     <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
-    <state width="1493" height="152" key="GridCell.Tab.0.right" timestamp="1581094151677">
+    <state width="1493" height="152" key="GridCell.Tab.0.right" timestamp="1581095161923">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424119" />
-    <state width="1493" height="152" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151677" />
+    <state width="1493" height="152" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161923" />
     <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
-    <state width="1493" height="152" key="GridCell.Tab.1.bottom" timestamp="1581094151678">
+    <state width="1493" height="152" key="GridCell.Tab.1.bottom" timestamp="1581095161924">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424119" />
-    <state width="1493" height="152" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151678" />
+    <state width="1493" height="152" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161924" />
     <state width="1877" height="273" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
-    <state width="1493" height="152" key="GridCell.Tab.1.center" timestamp="1581094151678">
+    <state width="1493" height="152" key="GridCell.Tab.1.center" timestamp="1581095161924">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424119" />
-    <state width="1493" height="152" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151678" />
+    <state width="1493" height="152" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161924" />
     <state width="1877" height="273" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
-    <state width="1493" height="152" key="GridCell.Tab.1.left" timestamp="1581094151678">
+    <state width="1493" height="152" key="GridCell.Tab.1.left" timestamp="1581095161923">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424119" />
-    <state width="1493" height="152" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151678" />
+    <state width="1493" height="152" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161923" />
     <state width="1877" height="273" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
-    <state width="1493" height="152" key="GridCell.Tab.1.right" timestamp="1581094151678">
+    <state width="1493" height="152" key="GridCell.Tab.1.right" timestamp="1581095161924">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="244" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580400424119" />
-    <state width="1493" height="152" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094151678" />
+    <state width="1493" height="152" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581095161924" />
     <state width="1877" height="273" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1580844858927" />
     <state width="1493" height="214" key="GridCell.Tab.2.bottom" timestamp="1581023545736">
       <screen x="1920" y="0" width="1536" height="824" />
@@ -645,11 +712,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1577566938301" />
-    <state x="2281" y="138" key="Vcs.Push.Dialog.v2" timestamp="1581087769129">
+    <state x="2281" y="138" key="Vcs.Push.Dialog.v2" timestamp="1581094895625">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="451" y="174" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1579185808973" />
-    <state x="2281" y="138" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581087769129" />
+    <state x="2281" y="138" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581094895625" />
     <state x="451" y="174" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1580844658854" />
     <state x="2013" y="93" width="1350" height="638" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1578479645581">
       <screen x="1920" y="0" width="1536" height="824" />
@@ -663,11 +730,11 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="2013" y="93" width="1350" height="638" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1580826367387" />
-    <state x="2454" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1581084693982">
+    <state x="2454" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1581164382413">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1536.824@0.0.1920.1040" timestamp="1580807510033" />
-    <state x="2454" y="277" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581084693982" />
+    <state x="2454" y="277" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1536.824@1920.0.1536.824" timestamp="1581164382413" />
     <state x="667" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578741973124" />
     <state x="2500" y="332" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580243534517">
       <screen x="1920" y="0" width="1536" height="824" />
