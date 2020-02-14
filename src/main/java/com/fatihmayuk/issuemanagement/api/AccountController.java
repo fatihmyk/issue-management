@@ -14,7 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/token")
+@RequestMapping("/api/token")
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class AccountController {

@@ -9,7 +9,7 @@ import {SidebarComponent} from "./_layout/sidebar/sidebar.component";
 import {BsDatepickerModule, BsDropdownModule, CollapseModule, ModalModule, PaginationModule} from "ngx-bootstrap";
 import {ToastNoAnimation, ToastNoAnimationModule, ToastrModule} from "ngx-toastr";
 import {ApiService} from "./services/api.service";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {ProjectService} from "./services/shared/project.service";
 import {IssueService} from "./services/shared/issue.service";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
@@ -18,6 +18,13 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {UserService} from "./services/shared/user.service";
 import {IssueHistoryService} from "./services/shared/issue.history.service";
 import {NotfoundComponent} from "./shared/notfound/notfound.component";
+import {JwtInterceptor} from "./security/jwt.interceptor";
+import {AuthenticationService} from "./security/authentication.service";
+import {AuthGuard} from "./security/auth.guard";
+import {AuthenticationInterceptor} from "./security/authentication.interceptor";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 export const createTranslateLoader = (http : HttpClient) => {
   return new TranslateHttpLoader(http,'./assets/i18n/', '.json');
@@ -31,10 +38,13 @@ export const createTranslateLoader = (http : HttpClient) => {
     FooterComponent,
     HeaderComponent,
     SidebarComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     NgxDatatableModule,
@@ -51,15 +61,19 @@ export const createTranslateLoader = (http : HttpClient) => {
     }),
     TranslateModule.forRoot(
       {
-        loader:{
-          provide:TranslateLoader,
-          useFactory:createTranslateLoader,
-          deps:[HttpClient]
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
         }
       }
-    )
+    ),
+    ReactiveFormsModule
   ],
-  providers: [ApiService,ProjectService,IssueService,UserService,IssueHistoryService],
+  providers: [ApiService,ProjectService,IssueService,UserService,IssueHistoryService,AuthenticationService,AuthGuard,
+    {provide:HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi:true}],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
