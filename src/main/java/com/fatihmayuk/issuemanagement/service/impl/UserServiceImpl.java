@@ -1,26 +1,35 @@
 package com.fatihmayuk.issuemanagement.service.impl;
 
+import com.fatihmayuk.issuemanagement.dto.RegistrationRequestDto;
 import com.fatihmayuk.issuemanagement.dto.UserDto;
 import com.fatihmayuk.issuemanagement.entity.User;
 import com.fatihmayuk.issuemanagement.repository.UserRepository;
 import com.fatihmayuk.issuemanagement.service.UserService;
 import com.fatihmayuk.issuemanagement.util.TPage;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.Arrays;
 import java.util.List;
 
+
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper) {
+    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.modelMapper = modelMapper;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
@@ -75,7 +84,6 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(userDb);
         return modelMapper.map(userDb,UserDto.class);
-
     }
 
     @Override
@@ -83,4 +91,28 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
         return true;
     }
+
+    @Override
+    @Transactional
+    public Boolean register(RegistrationRequestDto  registrationRequestDto){
+
+        try {
+            User user = new User();
+            user.setNameSurname(registrationRequestDto.getNameSurname());
+            user.setUsername(registrationRequestDto.getUsername());
+            user.setEmail(registrationRequestDto.getEmail());
+            user.setPassword(bCryptPasswordEncoder.encode(registrationRequestDto.getPassword()));
+            userRepository.save(user);
+            return Boolean.TRUE;
+
+        }
+        catch(Exception e) {
+            log.error("REGISTRATION => " , e);
+            return Boolean.FALSE;
+        }
+
+
+    }
+
+
 }

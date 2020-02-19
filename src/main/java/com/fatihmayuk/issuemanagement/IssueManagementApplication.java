@@ -27,15 +27,6 @@ public class IssueManagementApplication {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		return modelMapper;
 	}
-	/*@Bean
-	public DataSourceInitializer dataSourceInitializer(@Qualifier("dataSource") final DataSource dataSource) {
-		ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-		resourceDatabasePopulator.addScript(new ClassPathResource("data/default_data.sql"));
-		DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
-		dataSourceInitializer.setDataSource(dataSource);
-		dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
-		return dataSourceInitializer;
-	}*/
 
 	/*@Bean
 	public Jackson2RepositoryPopulatorFactoryBean repositoryPopulator()

@@ -1,5 +1,6 @@
 package com.fatihmayuk.issuemanagement.service;
 
+import com.fatihmayuk.issuemanagement.dto.RegistrationRequestDto;
 import com.fatihmayuk.issuemanagement.dto.UserDto;
 import com.fatihmayuk.issuemanagement.util.TPage;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,6 @@ public interface UserService {
 
     Boolean delete(Long id);
 
-
+    Boolean register(RegistrationRequestDto registrationRequestDto);
 
 }
